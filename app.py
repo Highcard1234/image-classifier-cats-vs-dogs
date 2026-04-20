@@ -16,9 +16,10 @@ app = Flask(__name__)
 
 # Load the trained model
 
-model = load_model('cats_vs_dogs_model.h5')
 
-
+import os
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+model = load_model(os.path.join(BASE_DIR, 'cats_vs_dogs_model.h5'))
 
 @app.route('/', methods=['GET', 'POST'])
 
